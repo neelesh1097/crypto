@@ -1,0 +1,122 @@
+.home {
+  padding: 0px 10px;
+  padding-bottom: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+.hero {
+  max-width: 600px;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+
+.hero h1 {
+  font-size: max(4vw, 36px);
+  font-weight: 700;
+  color: #fff;
+}
+
+.hero p {
+  width: 75%;
+  color: #d0d0d0;
+  line-height: 1.6;
+}
+
+.hero form {
+  padding: 8px;
+  width: 80%;
+  background-color: #fff;
+  border-radius: 8px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero input {
+  flex: 1;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  color: #333;
+}
+
+.hero button {
+  border: none;
+  background: #7927ff;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero button:hover {
+  background: #5a1cc7;
+}
+
+.crypto-table {
+  max-width: 900px;
+  margin: 50px auto;
+  background: linear-gradient(rgba(84, 3, 255, 0.12), rgba(105, 2, 153, 0.12));
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.table-layout {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+  transition: background 0.2s ease;
+}
+
+.table-layout:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.table-header {
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coin-info img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.change {
+  font-weight: 500;
+}
+
+.green {
+  color: #16c784; /* positive change */
+}
+
+.red {
+  color: #ea3943; /* negative change */
+}
+
+.market-cap {
+  text-align: right;
+}
+
