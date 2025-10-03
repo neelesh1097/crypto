@@ -5,6 +5,20 @@ import { CoinContext } from '../../context/CoinContext';
 const Home = () => {
   const { allCoin } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
+  const [input,setInput] = useState('');
+
+  const inputHandler = (event) => {
+     setInput(event.target.value);
+  }
+
+  const searchHandler = (event) => {
+  event.preventDefault();
+  const coins = allCoin.filter((item) => 
+    item.name.toLowerCase().includes(input.toLowerCase()) ||
+    item.symbol.toLowerCase().includes(input.toLowerCase())
+  );
+  setDisplayCoin(coins);
+}
 
   useEffect(() => {
     setDisplayCoin(allCoin);
@@ -18,8 +32,8 @@ const Home = () => {
           Welcome to the world's largest cryptocurrency marketplace. Sign up to
           explore more about cryptos.
         </p>
-        <form>
-          <input type="text" placeholder="search crypto" />
+        <form onSubmit={searchHandler}>
+          <input onChange={inputHandler} value={input} type="text" placeholder="search crypto" />
           <button type="submit">Search</button>
         </form>
       </div>

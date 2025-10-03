@@ -1,19 +1,36 @@
-import React from 'react'
-import './Navbar.css'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 import arrow_icon from '../../assets/arrow_icon.png'
 import logo from '../../assets/logo.png'
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className='navbar'>
-      <img src={logo} alt="" className='logo'/>
-      <ul>
-        <li>Home</li>
-        <li>Features</li>
-        <li>Pricing</li>
-        <li>Blog</li>
-        
-      </ul>
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <Link to="/">
+          <img src={logo} alt="" className='logo'/>
+        </Link>
+      </div>
+      
+      <button className="hamburger" onClick={toggleMenu}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+        <Link to="/" onClick={toggleMenu}>Home</Link>
+        <Link to="/markets" onClick={toggleMenu}>Markets</Link>
+        <Link to="/watchlist" onClick={toggleMenu}>Watchlist</Link>
+      </div>
+      
       <div className="nav-right">
         <select>
             <option value="usd">USD</option>
@@ -22,9 +39,8 @@ const Navbar = () => {
         </select>
         <button> Sign up <img src={arrow_icon} /></button>
       </div>
+    </nav>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Navbar
+export default Navbar;
