@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Add this import
 import './Home.css';
 import { CoinContext } from '../../context/CoinContext';
 
@@ -47,29 +48,31 @@ const Home = () => {
           <p className="market-cap">Market Cap</p>
         </div>
 
-       {displayCoin.slice(0, 10).map((item, index) => (
-  <div className="table-layout" key={index}>
+       {displayCoin.slice(0, 10).map((item) => (
+  <Link 
+    to={`/coin/${item.id}`} 
+    className="table-layout table-row" // Added table-row class for consistency
+    key={item.id} // Changed to item.id instead of index
+  >
     <p>{item.market_cap_rank}</p>
 
     <div className="coin-info">
       <img src={item.image} alt={item.name} />
-      <p>{item.name} ({item.symbol.toUpperCase()})</p>
+      <p>{item.name} <span className="symbol">({item.symbol.toUpperCase()})</span></p>
     </div>
 
-    <p>${item.current_price.toLocaleString()}</p>
+    <p className="price">${item.current_price?.toLocaleString() || 'N/A'}</p>
 
-    {/* Apply "change" class for alignment */}
     <p
       className={`change ${item.price_change_percentage_24h >= 0 ? 'green' : 'red'}`}
     >
-      {item.price_change_percentage_24h.toFixed(2)}%
+      {item.price_change_percentage_24h?.toFixed(2) || 0}%
     </p>
 
-    {/* Apply "market-cap" class for right alignment */}
     <p className="market-cap">
-      ${item.market_cap.toLocaleString()}
+      ${item.market_cap?.toLocaleString() || 'N/A'}
     </p>
-  </div>
+  </Link>
 ))}
 
       </div>

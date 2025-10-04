@@ -27,8 +27,7 @@ const Navbar = () => {
 
       <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
         <Link to="/" onClick={toggleMenu}>Home</Link>
-        <Link to="/markets" onClick={toggleMenu}>Markets</Link>
-        <Link to="/watchlist" onClick={toggleMenu}>Watchlist</Link>
+        
       </div>
       
       <div className="nav-right">

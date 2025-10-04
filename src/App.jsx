@@ -1,21 +1,28 @@
 import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
-import { Routes, Route } from 'react-router-dom'
+import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
 import Coin from './pages/Coin/Coin'
-import Footer from './components/Footer/Footer'
-
+import CoinContextProvider from './context/CoinContext.jsx'
+import './Index.css';
 
 const App = () => {
   return (
-    <div className='app'>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-          <Route path='/coin/:coinId' element={<Coin />} />
-      </Routes>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <CoinContextProvider>
+        <div className="app-container">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/coin/:coinId' element={<Coin />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </CoinContextProvider>
+    </BrowserRouter>
   )
 }
 
