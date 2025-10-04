@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import "./Footer.css"; // import the CSS file
 
 const Footer = () => {
   return (
-    <div>Footer</div>
-  )
-}
+    <footer className="footer">
+      <hr />
+      <p>© 2025 Crypto Place. All rights reserved.</p>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
+

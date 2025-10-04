@@ -1,27 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 
-*{
- font-family: "Outfit", sans-serif;
+* {
+  font-family: "Outfit", sans-serif;
   padding: 0;
-  margin:0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-a{
+body {
+  min-height: 100vh;
+}
+
+a {
   text-decoration: none;
-  color:inherit;
+  color: inherit;
 }
 
-.app{
-  min-height:100vh;
-  color:white;
-  background: linear-gradient(#0b004e, #1d152f,#002834);
+.app-container {
+  min-height: 100vh;
+  color: white;
+  background: linear-gradient(#0b004e, #1d152f, #002834);
+  display: flex;
+  flex-direction: column;
 }
 
-.market-cap{
+main {
+  flex: 1;
+  padding-bottom: 100px; /* Space for footer */
+}
+
+.market-cap {
   text-align: right;
 }
-.change{
+
+.change {
   text-align: center;
 }
