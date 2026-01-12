@@ -28,6 +28,14 @@ const Navbar = () => {
       <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
         <Link to="/" onClick={toggleMenu}>Home</Link>
         
+        <div className="mobile-menu-options">
+          <select className="mobile-select">
+              <option value="usd">USD</option>
+              <option value="eur">EUR</option>
+              <option value="inr">INR</option>
+          </select>
+          <button className="mobile-signup-btn">Sign up <img src={arrow_icon} alt="arrow" /></button>
+        </div>
       </div>
       
       <div className="nav-right">

@@ -3,12 +3,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-   background-color: #060230;
+  background-color: #060230;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 100;
 }
 
 .navbar .logo {
   width: max(12vw, 120px);
+  height: auto;
 }
 
 .navbar-brand {
@@ -19,6 +22,8 @@
 .navbar-brand a {
   color: #ff0000;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-menu {
@@ -41,11 +46,12 @@
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px 8px;
+  z-index: 101;
 }
 
 .hamburger span {
@@ -57,56 +63,146 @@
   transition: all 0.3s ease;
 }
 
-.nav-right{
+.hamburger:hover span {
+  background: #ff8888;
+}
+
+.nav-right {
   display: flex;
-  gap:10px;
-  gap: max(1vw,12px);
-
+  gap: 10px;
+  gap: max(1vw, 12px);
+  align-items: center;
 }
 
-.nav-right select{
-padding: 5px 8px;
-border-radius: 6px;
-border: 2px solid white;
-background: transparent;
-color:white;
+.nav-right select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
 }
 
-.nav-right option{
+.nav-right option {
   background-color: #09005c;
   color: white;
 }
 
-.nav-right button{
+.nav-right button {
   display: flex;
   align-items: center;
-  gap:10px;
-  padding: 10px;
+  gap: 10px;
+  padding: 10px 15px;
   font-size: 15px;
   font-weight: 500;
-  color:#393939;
+  color: #393939;
   background: white;
-  border:none;
-  cursor:pointer;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.nav-right button:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
 
+.nav-right button img {
+  width: 16px;
+  height: 16px;
+}
 
+.mobile-menu-options {
+  display: none;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem;
+}
+
+.mobile-select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #ff0000;
+  background: transparent;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.mobile-select option {
+  background-color: #09005c;
+  color: white;
+}
+
+.mobile-signup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #393939;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-signup-btn:hover {
+  background: #f0f0f0;
+}
+
+.mobile-signup-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Tablet - 768px and below */
 @media screen and (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navbar .logo {
+    width: max(12vw, 90px);
+  }
+
   .hamburger {
     display: flex;
+    order: 2;
+  }
+
+  .navbar-brand {
+    order: 1;
+    flex: 1;
+  }
+
+  .nav-right {
+    display: none !important;
+    order: 3;
   }
 
   .navbar-menu {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 60px;
     left: 0;
     right: 0;
     flex-direction: column;
-    background: #26272b;
+    background: #1a1a2e;
     padding: 1rem;
-    text-align: center;
+    text-align: left;
+    z-index: 99;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
   }
 
   .navbar-menu.active {
@@ -114,11 +210,150 @@ color:white;
   }
 
   .navbar-menu a {
-    padding: 0.5rem 0;
+    padding: 0.75rem 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    display: block;
   }
 
   .navbar-menu a:last-child {
     border-bottom: none;
+  }
+
+  .mobile-menu-options {
+    display: flex;
+  }
+}
+
+/* Mobile - 480px and below */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .navbar .logo {
+    width: max(12vw, 70px);
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .hamburger {
+    gap: 4px;
+    padding: 4px 6px;
+  }
+
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+  }
+
+  .navbar-menu {
+    top: 50px;
+    padding: 0.8rem;
+  }
+
+  .navbar-menu a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .mobile-menu-options {
+    gap: 0.6rem;
+    padding: 0.8rem 0;
+    margin-top: 0.8rem;
+  }
+
+  .mobile-select {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .mobile-signup-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .mobile-signup-btn img {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-right {
+    gap: 6px;
+  }
+
+  .nav-right button {
+    padding: 7px 10px;
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .nav-right button img {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-right select {
+    padding: 5px 6px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small - 380px and below */
+@media screen and (max-width: 380px) {
+  .navbar {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .navbar .logo {
+    width: max(12vw, 60px);
+  }
+
+  .nav-right {
+    gap: 4px;
+  }
+
+  .nav-right button {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .nav-right select {
+    padding: 4px 5px;
+    font-size: 0.8rem;
+  }
+
+  .hamburger span {
+    width: 20px;
+  }
+
+  .navbar-menu a {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .mobile-menu-options {
+    gap: 0.5rem;
+    padding: 0.6rem 0;
+    margin-top: 0.6rem;
+  }
+
+  .mobile-select {
+    padding: 7px 8px;
+    font-size: 0.85rem;
+  }
+
+  .mobile-signup-btn {
+    padding: 7px 10px;
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .mobile-signup-btn img {
+    width: 12px;
+    height: 12px;
   }
 }
